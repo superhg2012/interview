@@ -1,0 +1,463 @@
+1 # icon for website
+<link href="/soncn/img/favicon.ico" type="image/png" rel="shortcut icon" />
+
+2 # Linux Commands
+
+#check the shell you use
+echo $0
+
+#check the full path of shell installed
+
+type -a bash
+type -a sh
+
+#文件/etc/shells里包含了系统所支持的shell列表
+cat /etc/shells
+
+#临时改变当前shell
+bash 切换到bash
+
+cat filename 
+
+cat filename | more
+
+cat hosts | less
+
+cat -n filename #display line number for texts
+cat -b filename #只给有文本的行加上行号
+more #翻屏,缺陷是每次都会读入整个文件，
+less不用读取整个文件，
+
+date #系统当前日期
+
+date -s "yyyy-mm-dd hh:MM:SS" # modify server system time 
+
+cal #当前日历
+
+free
+
+ulimit -u #Linux查看系统支持的最大线程数目
+
+
+#identifying commands
+
+type commands
+#examples
+type ls
+type cp
+
+which ls #To determine the exact location of a given executable 
+#/bin/ls
+
+help
+help -m cd
+man ls
+
+#stands I/O 
+#output
+
+ls > file_list.txt #override each time
+ls >> file.txt     #append an the end of file
+
+#input
+sort < file.txt
+sort < file_list.txt > sorted_file_list.txt #both input and output
+mkdir dir1 #create dir
+mkdir -p /tmp/a/b/c #创建嵌套目录的高效命令
+mkdir -p tmp/a/b/c
+mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a} #使用一个命令来定义复杂的目录树
+
+
+mkdir {2007..2009}-0{1..9} {2007..2009}-{10..12}
+
+rm -rf dir1 #delete dir 递归强制删除，不提示y/n
+
+ln -s source dist #soft link
+ln source dist #hard link
+
+#difference between soft link and hard link
+软连接与Window系统的快捷方式是类似的
+硬链接类似于镜像，修改了一处，源文件会相应发生变化
+
+echo $PATH
+
+echo -n "please input password:"
+
+echo *
+echo D* 
+echo [[:upper:]]* #首字母大写的所有内容
+
+
+cd ~ #change directory to home
+cd - #change directory to previous one
+cd / #change directory to root dir
+
+/alcatel/MS/MS_PMON/scripts/startandstop/start_ALUWatson
+==
+cd /alcatel/MS/MS_PMON/scripts/startandstop/
+./start_ALUWatson.sh
+
+history
+!n #在history命令列表中执行！+number 表示执行某个命令
+!-n #倒数第n个命令
+!! #上一条命令
+
+
+lsof /bin/bash  #查看谁正在使用某个文件，也就是说查找某个文件相关的进程
+lsof | grep 'test/test3'
+
+telnet 172.27.154.18 #maven 私服IP
+
+route 
+
+netstat -nr
+
+ifconfig #查看ip等信息
+
+ifconfig eth0 up 为启动网卡eth0 ；
+ifconfig eth0 down 为关闭网卡eth0。
+
+#配置IP地址
+ifconfig eth0 192.168.120.56 
+ifconfig eth0 192.168.120.56 netmask 255.255.255.0 
+
+#启用和关闭ARP协议
+ifconfig eth0 arp 
+ifconfig eth0 -arp
+
+stat filename //三种文件类型
+file filename //查看文件类型
+
+alias -p #list all 别名类表
+仅仅在定义他们的Shell进程中有效，因此定义正在.bashrc中是个好地方
+
+cat /etc/passwd
+
+用户管理
+useradd -m test #create a user test,and /home/test/ #创建HOME目录
+
+userdel -r test # delete user test and /hom/test
+
+
+chmod 777 filename
+chmod a+x filename #所有用户添加写权限
+chmod u+x filename #用户添加写权限
+chmod g+x filename #组添加写权限
+chmod o+x filename #其他用户添加写权限
+
+chown s: sgroup filename #改变文件的属主
+chgrp #改变文件的默认属组
+
+chown mail : mail log.txt
+chown root : log2014.log #改变文件拥有者和群组
+chown : mail log.txt 改变文件群组
+chown - -v root:mail test6 #改变指定目录及子目录下的所有文件的拥有者和群组
+
+touch filename # if filename does not exist, create an empty file, 
+               # if file exist already, modify file time to current time
+
+
+kill -9 pid # kill some process with pid
+killall http* #kill all processes starts with http
+
+
+grep apple full.txt #search all apple in full.txt
+grep -i apple full.txt #返回所有匹配apple Apple等的字符串
+
+top  #查看实时进程内存信息
+
+ps -ef | grep "watson"
+ps
+ps -A # display all process
+ps -A等价与 ps -e
+
+ps -f #显示完整格式的输出
+ps -l
+
+ps aux #列出目前所有的正在内存当中的程序
+
+ps aux | egrep '(cron|syslog)' #找出与 cron 与 syslog 这两个服务有关的 PID 号码
+
+jps #display all java process
+
+rpm -qa  | grep "npo-son" # check the rpm installed version
+rpm -e filename #uninstall rpm package
+rpm -ivh rpmfilename  #install rpm package
+rpm -q samba  #查询是否安装程序Samba
+rpm -Uvh  #升级安装包
+
+rpm -qf 文件名 #文件名所在的绝对路径要指出
+#Query condition
+rpm -a #all
+-l #list
+-p #package
+
+tar -zcvf 压缩
+
+tar -xvf 解压tar包
+
+tar xvf -C tmp/a/b/c newarc.tar.gz #不需要更改路径，就可以将tar包解压到需要的目录中
+
+tar -jvf
+
+dd
+
+df -h # 磁盘利用情况
+
+du -h #disk usage, default to current directory
+
+free
+
+sudo
+
+sftp user@ip 
+
+time #计算命令执行时间
+time ls
+
+uname
+
+uname -a
+
+SunOs 默认采用sh,可以输入bash命令切换到bash命令下;exit退出bash，返回到sh
+
+Linux 默认采用bash
+
+init 6 #重启虚拟机
+
+printenv # print all global  variables
+
+set # 显示为某个特定进程设置的所有环境变量
+
+who/whoami
+
+
+who -r #display runlevel
+
+runlevel
+
+#patch命令就是用来将修改（或补丁）写进文本文件里
+diff-Naur old_file new_file > diff_file
+patch <diff_file
+
+#识别Linux系统中指定文件(/etc/fstab)的关联包
+rpm -qf /etc/fstab
+
+#PipeLines
+One kind of program frequently used in pipelines is called filters. Filters take standard input and perform an operation upon it and send the results to standard output. In this way, they can be combined to process information in powerful ways. Here are some of the common programs that can act as filters:
+
+ls -lt | head 
+du | sort -nr
+find . -type f -print | wc -l
+
+
+#Filters
+
+sort
+uniq
+grep
+fmt
+pr
+head
+tail
+tr
+sed
+awk
+
+
+tar tzvf name_of_file.tar.gz | less #viewing the contents of tar files
+
+find ./ -type f -name "*.cpp" -print | xargs grep "libnvmm_"
+
+find ./ -type d -print | xargs ls -ld
+
+find ~ | wc -l
+
+find /home -size +120M #查找home目录下找出大小超过120M的文件
+
+find /home -mtime +120 #在/home目录下找出120天之前被修改过的文件
+
+find ~ -type d | wc -l
+
+find . -type f -name "*.cfg"  -size +1k | xargs ls -l
+
+find ./ -type f -name "*.cfg" -print | xargs wc -l
+
+#查找当前目录下包含test的所有文件并删除
+find . -name "*test*" -delete
+#只删除文件夹, 不删除文件
+ find . -type "d" -name "*test*" -exec rm -rf {} \
+#只删除文件. 保留文件夹
+ find . -type "f" -name "*test*" -delete
+
+#在整个目录树下查找文件“core”，如发现则无需提示直接删除它们。
+find / -name core -exec rm {} \
+
+find /opt/log/ -name "*.log" -mtime +30 -exec rm -rf {} \ #删除30天钱带log后缀的文件，若要求自动可以设置cron调度执行[计划任务]
+
+#crontab -e
+将auto-del-30-days-ago-log.sh执行脚本加入到系统计划任务，到点自动执行
+输入：10 0 * * * /opt/soft/log/auto-del-7-days-ago-log.sh >/dev/null 2>&1
+
+
+ls
+ls -l ALU*   #list all files with name started with ALU; 
+过滤列出结果?代表一个字符，*代表零个或多个字符
+ls -al   #list files including hidden files.
+ls -A #ignore hidden files
+
+ls -F #区分目录与普通文件，可执行文件等
+
+ls -lh #list files with sizes 7MB
+
+ls -l /bin #list all files in long format in the /bin directory
+ls -l .. #list all files in parent dir
+
+rm -rf ALU*  #delete all files starts with ALU
+
+\rm -f npo* #delete all files starts with npo, do not need to input y for many times
+
+
+wget url #下载文件 支持HTTP， HTTPS FTP protocol
+
+
+cp /root/soncn.jar . #copy file
+
+scp #secure copy 
+
+#解决要求输入密码等步骤。。。
+ssh-keygen -t rsa
+.ssh/id_rsa
+./ssh/id_rsa_pub
+
+其中id_rsa 为私钥，id_rsa_pub为公钥
+
+pub id_rsa_pub on target server .ssh目录下若不存在,创建之 
+
+a) 从本地服务器复制到远程服务器:
+a.a) copy file
+scp localfile remoteUser@remote_IP : remote_folder/remote_file #just need to input user_password
+scp localfile remote_IP : remote_folder/remote_file #need to input userAccount and user_password
+
+scp xxxx.rpm root@135.252.169.130:/root/
+#input password for nio130
+a.b) copy folder
+
+scp -r local_folder remote_username@remote_ip:remote_folder  
+或者  
+scp -r local_folder remote_ip:remote_folder 
+
+b) 从远程服务器复制到本地服务器: 
+从远程复制到本地的scp命令与上面的命令雷同，只要将从本地复制到远程的命令后面2个参数互换顺序就行了
+
+1)从远程复制文件到本地目录
+scp root@192.168.120.204:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/
+2） 从远程复制到本地
+scp -r root@192.168.120.204:/opt/soft/mongodb /opt/soft/
+
+mv /root.soncn.jar . #cut and move file
+mv a.txt b.txt       #rename file under same directory
+mv dir1 dir2         # rename direcory,files in that direcory will not be changed or modified
+
+tail -f filename
+tail -n filename #display last n lines of filename
+tail -f ALU*.trace > a.trace #output file override run each time
+tail -f ALU*.trace >> a.trace #append content at the end
+
+head -n filename #display first n lines of a file,when someone do not know the content of a file
+
+#Global Env Variables
+echo $HOME
+echo $PWD
+echo $USER
+
+#define a local env variable
+test='test a long string'
+echo $test
+
+export test #export to be a global env variable
+unset set #delete global enb variable
+
+
+/etc/profile
+系统自带的默认的profile
+$HOME/.bash_profile
+$HOME/.bash_login
+$HOME/.profile
+提供一个用户专属的启动文件来定义用户专有的环境变量
+
+
+#------------------SHELL------------------------------
+
+#仅当另一个命令返回零退出状态时才运行某个命令
+cd tmp/a/b/c && tar xvf ~/archive.tar #目录存在
+
+#组合命令
+cd tmp/a/b/c || mkdir -p tmp/a/b/c && tar xvf -C tmp/a/b/c ~/archive.tar
+
+使用 xargs 工具作为筛选器，以充分利用从 find 命令挑选的输出
+
+ls -l /tmp/a/b/c | grep Dec
+
+clearcase vob中编译的命令
+#ant all
+/home/changwet/apache-ant1.8/bin/ant -f build.xml all
+#ant soncn.jar
+/home/changwet/apache-ant1.8/bin/ant -f build.xml .cn.jar
+
+#clearcase command
+
+ct setview viewname
+
+ct edcs #config, 时注意乱码问题
+
+1 ct lsco -r -cview  # list all checked out files
+
+2 ct rm filename # delete file in vob
+
+3 ct mkelem -nc filename # add file in vob , check out parent directory before mkelem 
+
+4 ct unco -rm file #uncheck out file
+5 ct lsco -r -cview
+6 ct lsco -r -cview -s #effective command
+7 ct lsco -r -cview -me
+
+8 \rm -rf framework/ #在ClearCase VobS中递归删除目录，不会每次都提示输入y/n?
+
+
+# Maven installation steps
+1) download maven-bin.zip
+2) config M2_HOME and add bin to path
+3) import the Existing maven project to eclipse
+4) config maven intallation location and User Setting in eclipse
+
+#check maven install
+mvn -version
+mvn -v
+mvn clean package
+
+ #SAM Server的Snapshot文件的路径
+ /opt/5620sam/server/nms/activation/
+
+ Web应用程序中web.xml的加载顺序是：context-param-> listener-> filter-> servlet ，而同个类型之间的实际程序调用的时候的顺序是根据对应的 mapping 的顺序进行调用的。
+
+
+#rules for legou8
+一般情况下，只要开了1这个号，下面开小的机会比较大
+开7和8下面开大的机会也大
+
+#倍数
+1 2 5 12 30 90 200 500
+
+Hibernate SQLQuery
+
+Iterator relations = ().iterator()
+while(relations.hasNext()){
+    Object[] objParameter = (Object[]) relations.next();
+    String release = Objects.toString(objParameter[0], ""); 
+}
+
+List<Object []> list = session.createSqlQuery(sql).list();
+
+返回值是List<Object []>类型的
+
