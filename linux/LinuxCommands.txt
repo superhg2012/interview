@@ -166,9 +166,11 @@ grep -i apple full.txt #返回所有匹配apple Apple等的字符串
 
 top  #查看实时进程内存信息
 
-jobs #查看运行的作业
-bg
-fg
+jobs #查看后台运行的进程
+command& #让进程在后台运行
+bg %n #让后台运行的进程n到前台来
+fg %n #让进程n到后台去
+PS:"n"为jobs查看到的进程编号.
 
 #忽略任何中断/挂起信号，使命令继续执行
 nohup command & #默认输出到nohup.out文件中
