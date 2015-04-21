@@ -166,13 +166,22 @@ grep -i apple full.txt #返回所有匹配apple Apple等的字符串
 
 top  #查看实时进程内存信息
 
-ps -ef | grep "watson"
+jobs #查看运行的作业
+bg
+fg
+
+#忽略任何中断/挂起信号，使命令继续执行
+nohup command & #默认输出到nohup.out文件中
+nohup command > myout.file 2>&1 #重定向输出
+nohup ./test.bh &
+
 ps
 ps -A # display all process
 ps -A等价与 ps -e
 
 ps -f #显示完整格式的输出
 ps -l
+ps -ef | grep "watson"
 
 ps aux #列出目前所有的正在内存当中的程序
 
@@ -231,14 +240,13 @@ set # 显示为某个特定进程设置的所有环境变量
 
 who/whoami
 
-
 who -r #display runlevel
 
 runlevel
 
 #patch命令就是用来将修改（或补丁）写进文本文件里
 diff-Naur old_file new_file > diff_file
-patch <diff_file
+patch < diff_file
 
 #识别Linux系统中指定文件(/etc/fstab)的关联包
 rpm -qf /etc/fstab
@@ -421,9 +429,7 @@ ct edcs #config, 时注意乱码问题
 5 ct lsco -r -cview
 6 ct lsco -r -cview -s #effective command
 7 ct lsco -r -cview -me
-
 8 \rm -rf framework/ #在ClearCase VobS中递归删除目录，不会每次都提示输入y/n?
-
 
 # Maven installation steps
 1) download maven-bin.zip
