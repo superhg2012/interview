@@ -40,8 +40,8 @@ ulimit -u #Linux查看系统支持的最大线程数目
 
 
 #identifying commands
-
 type commands
+
 #examples
 type ls
 type cp
@@ -102,6 +102,7 @@ history
 !-n #倒数第n个命令
 !! #上一条命令
 
+sudo !! #以管理员权限执行上一条命令
 
 lsof /bin/bash  #查看谁正在使用某个文件，也就是说查找某个文件相关的进程
 lsof | grep 'test/test3'
