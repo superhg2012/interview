@@ -367,7 +367,7 @@ scp -r root@192.168.120.204:/opt/soft/mongodb /opt/soft/
 
 mv /root.soncn.jar . #cut and move file
 mv a.txt b.txt       #rename file under same directory
-mv dir1 dir2         # rename direcory,files in that direcory will not be changed or modified
+mv dir1 dir2  # rename direcory,files in that direcory will not be changed or modified
 
 tail -f filename
 tail -n filename #display last n lines of filename
@@ -457,15 +457,4 @@ mvn clean package
 #倍数
 1 2 5 12 30 90 200 500
 
-Hibernate SQLQuery
-
-Iterator relations = ().iterator()
-while(relations.hasNext()){
-    Object[] objParameter = (Object[]) relations.next();
-    String release = Objects.toString(objParameter[0], ""); 
-}
-
-List<Object []> list = session.createSqlQuery(sql).list();
-
-返回值是List<Object []>类型的
 
