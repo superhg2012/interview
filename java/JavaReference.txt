@@ -1,0 +1,12 @@
+#Java Reference
+Java提供了四个级别的引用：强引用，软引用，虚引用，弱引用
+只有强引用FinalReference是包内可见的，其他三种引用均为public.
+##强引用 FinalReference
+StringBuffer buffer = new StringBuffer();
+当创建了一个对象，该对象被分配到堆上，变量buffer被分配在栈上。
+强引用具备以下特点：
+> 1.强引用可以直接访问目标对象
+> 2.强引用所指向的对象在任何时候不会被系统回收
+> 3.强引用可能导致内存泄露
+
+##软引用 SoftReference
