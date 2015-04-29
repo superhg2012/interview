@@ -34,7 +34,21 @@ Java NIO的通道类似流，但又有些不同：
 1 从Buffer读取数据到Channel。
 2 使用get()方法从Buffer中读取数据。
 
+#Channel
 
+##FileChannel
+FileChannel总是运行在阻塞模式，无法运行在非阻塞模式
+1 打开FileChannel
+在使用FileChannel之前，必须先打开它。但是，我们无法直接打开一个FileChannel，需要通过使用一个InputStream、OutputStream或RandomAccessFile来获取一个FileChannel实例。
+
+RandomAccessFile aFile = new RandomAccessFile("data/nio-data.txt", "rw");
+FileChannel channel - aFile.getChannel();
+
+2 从FileChannel读取数据
+Buffer buffer = channel.allocate(1024);
+int bytesread = channel.read(buffer);
+
+3 向FileChannel写数据
 
 #Selector
 ##Selector的创建
