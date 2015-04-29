@@ -33,3 +33,21 @@ Java NIO的通道类似流，但又有些不同：
 从Buffer中读取数据有两种方式：
 1 从Buffer读取数据到Channel。
 2 使用get()方法从Buffer中读取数据。
+
+
+
+#Selector
+##Selector的创建
+Selector selector = Selector.open();
+##向Selector注册通道
+channel.configureBlocking(false);
+SelectionKey key = channel.register(selector,Selectionkey.OP_READ);
+
+与Selector一起使用时，Channel必须处于非阻塞模式下。这意味着不能将FileChannel与Selector一起使用，因为FileChannel不能切换到非阻塞模式。而套接字通道都可以.
+
+注意<b>register()</b>方法的第二个参数。这是一个“interest集合”，意思是在通过Selector监听Channel时对什么事件感兴趣。可以监听四种不同类型的事件：
+
+Connect
+Accept
+Read
+Write
