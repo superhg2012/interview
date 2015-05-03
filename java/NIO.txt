@@ -73,21 +73,21 @@ Java NIO中的 ServerSocketChannel 是一个可以监听新进来的TCP连接的
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.socket().bind(new InetSocketAddress(9999));
         
-        //非阻塞模式下，accept方法会立刻返回
-        serverSocketChannel.configureBlocking(false);
-        while (true) {
-            SocketChannel socketChannel = serverSocketChannel.accept(); // 监听新进来的链接
-            // TODO
-            if(socketChannel!=null){
-                //TODO
-            }
-        }
+//非阻塞模式下，accept方法会立刻返回
+serverSocketChannel.configureBlocking(false);
+while (true) {
+    SocketChannel socketChannel = serverSocketChannel.accept(); // 监听新进来的链接
+    // TODO
+    if(socketChannel!=null){
+        //TODO
+    }
+}
 
-        // 在非阻塞模式下，accept() 方法会立刻返回，如果还没有新进来的连接,返回的将是null。
-        // 因此，需要检查返回的SocketChannel是否是null
+// 在非阻塞模式下，accept() 方法会立刻返回，如果还没有新进来的连接,返回的将是null。
+// 因此，需要检查返回的SocketChannel是否是null
 
-        // close
-        //serverSocketChannel.close();
+// close
+//serverSocketChannel.close();
 
 
 #Main difference between JAVA NIO and IO
