@@ -111,7 +111,20 @@ telnet 172.27.154.18 #maven 私服IP
 
 route 
 
+netstat -a #列出所有端口
+netstat -at #列出所有 tcp 端口
+netstat -nu #显示当前UDP连接状况
+
+netstat -n #显示所有已建立的有效连接
 netstat -nr
+netstat -ap | grep ssh #找出程序运行的端口
+netstat -anp| grep 8080 #查看端口8080被哪个进程占用
+netstat -ano  #命令可以查看本机目前所有端口使用情况
+
+netstat -anpt | grep ':16064' #找出运行在指定端口的进程
+ps -aux |grep pid 
+
+lsof -i:8080 
 
 ifconfig #查看ip等信息
 
