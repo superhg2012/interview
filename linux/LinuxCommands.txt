@@ -442,10 +442,12 @@ ct edcs #config, 时注意乱码问题
 3 ct mkelem -nc filename # add file in vob , check out parent directory before mkelem 
 
 4 ct unco -rm file #uncheck out file
+4.1 ct unco filename
 5 ct lsco -r -cview
 6 ct lsco -r -cview -s #effective command
 7 ct lsco -r -cview -me
-8 \rm -rf framework/ #在ClearCase VobS中递归删除目录，不会每次都提示输入y/n?
+8 ct ls filename #check verions of file
+9 \rm -rf framework/ #在ClearCase VobS中递归删除目录，不会每次都提示输入y/n?
 
 # Maven installation steps
 1) download maven-bin.zip
@@ -457,6 +459,10 @@ ct edcs #config, 时注意乱码问题
 mvn -version
 mvn -v
 mvn clean package
+
+#maven commands
+mvn install #get dependencies
+mvn help:system
 
  #SAM Server的Snapshot文件的路径
  /opt/5620sam/server/nms/activation/
@@ -473,5 +479,18 @@ mvn clean package
 
 #VNC管理虚拟机
 Ctrl + Alt退出当前虚拟机管理窗口,鼠标焦点...
+
+我是一只小毛驴，
+我从来也不骑。
+主动点，咱们好好处处。
+将来的计划
+户口
+#awk 
+awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+awk, gawk ,nawk
+##awk使用方法
+awk '{pattern + action}' {filenames}
+
+
 
 
