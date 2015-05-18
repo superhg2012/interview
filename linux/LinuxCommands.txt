@@ -26,7 +26,7 @@ cat hosts | less
 cat -n filename #display line number for texts
 cat -b filename #只给有文本的行加上行号
 more #翻屏,缺陷是每次都会读入整个文件，
-less不用读取整个文件，
+less #不用读取整个文件，
 
 date #系统当前日期
 
@@ -38,6 +38,12 @@ free
 
 ulimit -u #Linux查看系统支持的最大线程数目
 
+
+ls -l
+ls -al
+ls -al ALU*
+
+ll == ls + -l
 
 #identifying commands
 type commands
@@ -118,11 +124,12 @@ netstat -nu #显示当前UDP连接状况
 netstat -n #显示所有已建立的有效连接
 netstat -nr
 netstat -ap | grep ssh #找出程序运行的端口
-netstat -anp| grep 8080 #查看端口8080被哪个进程占用
+netstat -anp | grep 8080 #查看端口8080被哪个进程占用
 netstat -ano  #命令可以查看本机目前所有端口使用情况
-
+netstat -antp | grep some_port_or_process_name
 netstat -anpt | grep ':16064' #找出运行在指定端口的进程
-ps -aux |grep pid 
+
+ps -aux | grep pid 
 
 lsof -i:8080 
 
@@ -324,7 +331,8 @@ find /opt/log/ -name "*.log" -mtime +30 -exec rm -rf {} \ #删除30天钱带log�
 输入：10 0 * * * /opt/soft/log/auto-del-7-days-ago-log.sh >/dev/null 2>&1
 
 
-ls
+#ls
+ll(double L) == ls + -l
 ls -l ALU*   #list all files with name started with ALU; 
 过滤列出结果?代表一个字符，*代表零个或多个字符
 ls -al   #list files including hidden files.
@@ -347,7 +355,7 @@ wget url #下载文件 支持HTTP， HTTPS FTP protocol
 
 cp /root/soncn.jar . #copy file
 
-scp #secure copy 
+#scp #secure copy 
 
 #解决要求输入密码等步骤。。。
 ssh-keygen -t rsa
@@ -378,6 +386,14 @@ b) 从远程服务器复制到本地服务器:
 scp root@192.168.120.204:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/
 2） 从远程复制到本地
 scp -r root@192.168.120.204:/opt/soft/mongodb /opt/soft/
+
+
+#sftp
+sftp root@135.252.169.130
+>input password 
+
+get file /var/home/gbhe/ #get remote file local dir
+put file /var/home/gbhe/ #put localfile remote dir
 
 mv /root.soncn.jar . #cut and move file
 mv a.txt b.txt       #rename file under same directory
@@ -480,7 +496,7 @@ mvn help:system
 #VNC管理虚拟机
 Ctrl + Alt退出当前虚拟机管理窗口,鼠标焦点...
 
-我是一只小毛驴，
+我有一只小毛驴，
 我从来也不骑。
 主动点，咱们好好处处。
 将来的计划
