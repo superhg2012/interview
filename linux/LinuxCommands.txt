@@ -36,6 +36,8 @@ cal #当前日历
 
 free
 
+
+adddddd
 ulimit -u #Linux查看系统支持的最大线程数目
 
 
