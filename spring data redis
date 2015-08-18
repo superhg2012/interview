@@ -1,1 +1,58 @@
 
+ @Autowired
+ private RedisTemplate redisTemplate;
+
+//set key 
+ redisTemplate.execute(new RedisCallback<Integer>() {
+
+            @Override
+            public Integer doInRedis(RedisConnection connection) throws DataAccessException {
+                connection.set(key, getValue(stock));
+                return 0;
+            }
+});
+
+//get key
+return (Integer) redisTemplate.execute(new RedisCallback<Integer>() {
+
+    @Override
+    public Integer doInRedis(RedisConnection connection) throws DataAccessException {
+        byte[] value = connection.get(key);
+        return getValue(value);
+    }
+});
+
+/del key
+redisTemplate.execute(new RedisCallback<Long>() {
+
+    @Override
+    public Long doInRedis(RedisConnection connection) throws DataAccessException {
+        return connection.del(key);
+    }
+});
+
+//increase key
+return (Integer) redisTemplate.execute(new RedisCallback<Integer>() {
+
+    @Override
+    public Integer doInRedis(RedisConnection connection) throws DataAccessException {
+        Long count = connection.incrBy(key, value);
+        return count.intValue();
+    }
+});
+//decreate key
+return (Integer) redisTemplate.execute(new RedisCallback<Integer>() {
+
+    @Override
+    public Integer doInRedis(RedisConnection connection) throws DataAccessException {
+        Long count = connection.decrBy(key, value);
+        return count.intValue();
+    }
+});
+
+        
+        
+        
+
+
+ 
