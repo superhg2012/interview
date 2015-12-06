@@ -1,0 +1,29 @@
+枚举是如何保证线程安全的?
+
+QA:
+
+public enum t {
+    SPRING,SUMMER,AUTUMN,WINTER;
+}
+
+反编译后得到的java code:
+
+public static final T SPRING;
+public static final T SUMMER;
+public static final T AUTUMN;
+public static final T WINTER;
+private static final T ENUM$VALUES[];
+static
+{
+    SPRING = new T("SPRING", 0);
+    SUMMER = new T("SUMMER", 1);
+    AUTUMN = new T("AUTUMN", 2);
+    WINTER = new T("WINTER", 3);
+    ENUM$VALUES = (new T[] {
+        SPRING, SUMMER, AUTUMN, WINTER
+    });
+}
+
+都是static类型的，因为static类型的属性会在类被加载之后被初始化，当一个Java类第一次被真正使用到的时候
+静态资源被初始化、Java类的加载和初始化过程都是线程安全的。所以，创建一个enum类型是线程安全的。
+
